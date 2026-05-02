@@ -1,0 +1,16 @@
+{
+  "task_id": "task06_武汉周华健20260523",
+  "status": "active",
+  "last_run_at": "2026-04-21T06:16:04+00:00",
+  "last_successful_run_at": "2026-04-21T06:36:00+00:00",
+  "latest_run_id": "20260421_141604",
+  "run_count": 1,
+  "total_leads": 2,
+  "new_leads_last_run": 2,
+  "updated_leads_last_run": 0,
+  "consecutive_no_update_runs": 0,
+  "last_stop_reason": "no_valid_posts",
+  "search_since": "2026-04-21T06:36:00+00:00",
+  "comment_since": "2026-04-21T06:36:00+00:00",
+  "updated_at": "2026-04-21T14:36:00+08:00"
+}

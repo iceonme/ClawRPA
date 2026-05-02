@@ -1,0 +1,4 @@
+{"ts": "2026-04-21T11:08:45+08:00", "event": "run_started", "task_id": "task02_郑州汪苏泷20260430", "keyword": "郑州 汪苏泷", "search_since": null, "comment_since": null, "requested_at": "2026-04-21T11:08:45+08:00"}
+{"ts": "2026-04-21T11:35:13+08:00", "event": "run_finished", "run_id": "20260421_110845", "run_status": "success", "stop_reason": "reached_max_leads", "raw_leads": 30, "new_leads": 30, "updated_leads": 0, "total_leads": 30}
+{"ts": "2026-04-21T12:18:01+08:00", "event": "run_started", "task_id": "task02_郑州汪苏泷20260430", "keyword": "郑州 汪苏泷", "search_since": "2026-04-21T03:35:12+00:00", "comment_since": "2026-04-21T03:35:12+00:00", "requested_at": "2026-04-21T12:18:01+08:00"}
+{"ts": "2026-04-21T12:40:46+08:00", "event": "run_finished", "run_id": "20260421_121801", "run_status": "success", "stop_reason": "reached_max_leads", "raw_leads": 30, "new_leads": 1, "updated_leads": 29, "total_leads": 31}

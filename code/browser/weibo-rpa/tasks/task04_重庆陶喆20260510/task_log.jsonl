@@ -1,0 +1,2 @@
+{"ts": "2026-04-21T13:10:48+08:00", "event": "run_started", "task_id": "task04_重庆陶喆20260510", "keyword": "重庆 陶喆", "search_since": null, "comment_since": null, "requested_at": "2026-04-21T13:10:48+08:00"}
+{"ts": "2026-04-21T13:30:10+08:00", "event": "run_finished", "run_id": "20260421_131048", "run_status": "success", "stop_reason": "reached_max_leads", "raw_leads": 30, "new_leads": 29, "updated_leads": 1, "total_leads": 29}

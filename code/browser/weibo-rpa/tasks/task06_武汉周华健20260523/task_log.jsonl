@@ -1,0 +1,3 @@
+{"ts": "2026-04-21T14:16:04+08:00", "event": "run_started", "task_id": "task06_武汉周华健20260523", "keyword": "武汉 周华健", "search_since": null, "comment_since": null, "requested_at": "2026-04-21T14:16:04+08:00"}
+{"ts": "2026-04-21T14:36:00+08:00", "event": "run_finished", "run_id": "20260421_141604", "run_status": "success", "stop_reason": "no_valid_posts", "raw_leads": 2, "new_leads": 2, "updated_leads": 0, "total_leads": 2}
+{"ts": "2026-04-22T20:33:04+08:00", "event": "run_started", "task_id": "task06_武汉周华健20260523", "keyword": "武汉 周华健", "search_since": "2026-04-21T06:36:00+00:00", "comment_since": "2026-04-21T06:36:00+00:00", "requested_at": "2026-04-22T20:33:04+08:00"}

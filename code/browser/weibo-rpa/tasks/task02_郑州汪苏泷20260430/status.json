@@ -1,0 +1,16 @@
+{
+  "task_id": "task02_郑州汪苏泷20260430",
+  "status": "active",
+  "last_run_at": "2026-04-21T04:18:01+00:00",
+  "last_successful_run_at": "2026-04-21T04:40:45+00:00",
+  "latest_run_id": "20260421_121801",
+  "run_count": 2,
+  "total_leads": 31,
+  "new_leads_last_run": 1,
+  "updated_leads_last_run": 29,
+  "consecutive_no_update_runs": 0,
+  "last_stop_reason": "reached_max_leads",
+  "search_since": "2026-04-21T04:40:45+00:00",
+  "comment_since": "2026-04-21T04:40:45+00:00",
+  "updated_at": "2026-04-21T12:40:46+08:00"
+}

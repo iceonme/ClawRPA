@@ -1,0 +1,18 @@
+{
+  "event_query": "周杰伦 南宁 演唱会",
+  "platforms": ["weibo"],
+  "search_keywords": [
+    "周杰伦 南宁 演唱会",
+    "周杰伦 南宁 求票",
+    "周杰伦 南宁 收票",
+    "周杰伦 南宁 没抢到"
+  ],
+  "inferred_date": "",
+  "inferred_venue": "",
+  "max_posts_per_platform": 30,
+  "max_comments_per_post": 100,
+  "max_nested_comments_per_post": 30,
+  "max_leads": 200,
+  "allow_agent_review": true,
+  "output_dir": "runs/example-task"
+}

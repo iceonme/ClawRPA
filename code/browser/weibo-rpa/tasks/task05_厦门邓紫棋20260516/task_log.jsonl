@@ -1,0 +1,2 @@
+{"ts": "2026-04-21T13:30:12+08:00", "event": "run_started", "task_id": "task05_厦门邓紫棋20260516", "keyword": "厦门 邓紫棋", "search_since": null, "comment_since": null, "requested_at": "2026-04-21T13:30:12+08:00"}
+{"ts": "2026-04-21T13:47:06+08:00", "event": "run_finished", "run_id": "20260421_133012", "run_status": "partial_success", "stop_reason": "search_page_error", "raw_leads": 3, "new_leads": 3, "updated_leads": 0, "total_leads": 3}

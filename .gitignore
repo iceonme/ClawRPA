@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+
+# Runtime/browser profiles and run artifacts
+runtime/
+runs/
+**/runtime/
+**/runs/
+
+# Local temporary files
+tmp_callback_payload.json
+
+# Retained local backup of former nested repositories
+.git_weibo_rpa_backup/
+**/.git_weibo_rpa_backup/

@@ -1,0 +1,16 @@
+{
+  "task_id": "task09_深圳凤凰传奇20260501",
+  "status": "active",
+  "last_run_at": "2026-04-23T09:37:19+00:00",
+  "last_successful_run_at": "2026-04-23T09:40:01+00:00",
+  "latest_run_id": "20260423_173719",
+  "run_count": 2,
+  "total_leads": 9,
+  "new_leads_last_run": 0,
+  "updated_leads_last_run": 4,
+  "consecutive_no_update_runs": 0,
+  "last_stop_reason": "reached_max_leads",
+  "search_since": "2026-04-23T09:40:01+00:00",
+  "comment_since": "2026-04-23T09:40:01+00:00",
+  "updated_at": "2026-04-23T17:40:01+08:00"
+}

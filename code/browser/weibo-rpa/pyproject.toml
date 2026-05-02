@@ -1,0 +1,10 @@
+[project]
+name = "weibo-rpa"
+version = "0.1.0"
+description = "微博自动化工程，当前聚焦微博找客（lead）"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.weibo-rpa]
+notes = "Playwright 作为按需依赖，当前暂不强制写入 dependencies。当前已收口到 weibo-rpa/lead。"

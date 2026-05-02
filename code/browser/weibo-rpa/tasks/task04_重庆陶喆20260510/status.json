@@ -1,0 +1,16 @@
+{
+  "task_id": "task04_重庆陶喆20260510",
+  "status": "active",
+  "last_run_at": "2026-04-21T05:10:48+00:00",
+  "last_successful_run_at": "2026-04-21T05:30:10+00:00",
+  "latest_run_id": "20260421_131048",
+  "run_count": 1,
+  "total_leads": 29,
+  "new_leads_last_run": 29,
+  "updated_leads_last_run": 1,
+  "consecutive_no_update_runs": 0,
+  "last_stop_reason": "reached_max_leads",
+  "search_since": "2026-04-21T05:30:10+00:00",
+  "comment_since": "2026-04-21T05:30:10+00:00",
+  "updated_at": "2026-04-21T13:30:10+08:00"
+}

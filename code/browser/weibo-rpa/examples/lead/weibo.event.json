@@ -1,0 +1,17 @@
+{
+  "event_query": "时代少年团 广州",
+  "platforms": ["weibo"],
+  "search_keywords": [
+    "时代少年团 广州 求票",
+    "时代少年团 广州 收票",
+    "时代少年团 广州 没抢到"
+  ],
+  "inferred_date": "",
+  "inferred_venue": "",
+  "max_posts_per_platform": 30,
+  "max_comments_per_post": 100,
+  "max_nested_comments_per_post": 30,
+  "max_leads": 100,
+  "allow_agent_review": true,
+  "output_dir": "runs/lead-example"
+}

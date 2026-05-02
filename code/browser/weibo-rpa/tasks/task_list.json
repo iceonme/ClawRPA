@@ -1,0 +1,68 @@
+{
+  "active": [
+    {
+      "task_no": 7,
+      "keyword": "合肥 郭富城",
+      "start_date": "2026-06-01",
+      "end_date": "2026-06-02",
+      "enabled": true
+    },
+    {
+      "task_no": 8,
+      "keyword": "郑州 单依纯",
+      "start_date": "2026-04-30",
+      "end_date": "2026-05-02",
+      "enabled": true
+    },
+    {
+      "task_no": 9,
+      "keyword": "深圳 凤凰传奇",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-03",
+      "enabled": true
+    }
+  ],
+  "inactive": [
+    {
+      "task_no": 1,
+      "keyword": "温州 周杰伦",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-03",
+      "enabled": false
+    },
+    {
+      "task_no": 2,
+      "keyword": "郑州 汪苏泷",
+      "start_date": "2026-04-30",
+      "end_date": "2026-05-02",
+      "enabled": false
+    },
+    {
+      "task_no": 3,
+      "keyword": "上海 明日方舟",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-03",
+      "enabled": false
+    },
+    {
+      "task_no": 4,
+      "keyword": "重庆 陶喆",
+      "start_date": "2026-05-10",
+      "end_date": "2026-05-11",
+      "enabled": false
+    },
+    {
+      "task_no": 5,
+      "keyword": "厦门 邓紫棋",
+      "start_date": "2026-05-16",
+      "end_date": "2026-05-17",
+      "enabled": false
+    },
+    {
+      "task_no": 6,
+      "keyword": "武汉 周华健",
+      "start_date": "2026-05-23",
+      "end_date": "2026-05-24",
+      "enabled": false
+    }
+  ]}

@@ -1,0 +1,16 @@
+{
+  "task_id": "task05_厦门邓紫棋20260516",
+  "status": "active",
+  "last_run_at": "2026-04-21T05:30:12+00:00",
+  "last_successful_run_at": "2026-04-21T05:47:06+00:00",
+  "latest_run_id": "20260421_133012",
+  "run_count": 1,
+  "total_leads": 3,
+  "new_leads_last_run": 3,
+  "updated_leads_last_run": 0,
+  "consecutive_no_update_runs": 0,
+  "last_stop_reason": "search_page_error",
+  "search_since": "2026-04-21T05:47:06+00:00",
+  "comment_since": "2026-04-21T05:47:06+00:00",
+  "updated_at": "2026-04-21T13:47:06+08:00"
+}
