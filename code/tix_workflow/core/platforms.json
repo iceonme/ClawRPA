@@ -1,0 +1,92 @@
+[
+    {
+        "id": "damai",
+        "name": "大麦网",
+        "url": "https://www.damai.cn",
+        "search_url": "https://search.damai.cn/search.htm?keyword={keyword}",
+        "type": "primary",
+        "priority": -1,
+        "note": "基准原价来源"
+    },
+    {
+        "id": "maoyan",
+        "name": "猫眼演出",
+        "url": "https://show.maoyan.com",
+        "type": "primary",
+        "priority": -1,
+        "note": "主要竞争对手，一级票源"
+    },
+    {
+        "id": "fenwandao",
+        "name": "纷玩岛",
+        "url": "https://m.fenwandao.com",
+        "type": "primary_exclusive",
+        "priority": 1,
+        "note": "五月天等项目的独家首选"
+    },
+    {
+        "id": "moretickets",
+        "name": "摩天轮票务",
+        "url": "https://www.motianlun.cn",
+        "search_url": "https://www.motianlun.cn/search?keyword={keyword}",
+        "type": "secondary",
+        "priority": 1,
+        "note": "行情基准，PC 官网"
+    },
+    {
+        "id": "piaoniu",
+        "name": "票牛",
+        "url": "https://m.piaoniu.com",
+        "type": "secondary",
+        "priority": 1,
+        "note": "重要溢价参考"
+    },
+    {
+        "id": "ypiao",
+        "name": "有票",
+        "url": "https://www.ypiao.com",
+        "type": "secondary",
+        "priority": 2,
+        "note": "垂直二手，价格常有波动"
+    },
+    {
+        "id": "piaoxingqiu",
+        "name": "票星球",
+        "url": "https://m.piaoxingqiu.com",
+        "type": "primary_distributor",
+        "priority": 2,
+        "note": "热门项目分销商"
+    },
+    {
+        "id": "viagogo",
+        "name": "Viagogo",
+        "url": "https://www.viagogo.com",
+        "type": "international_secondary",
+        "priority": -1,
+        "note": "针对港澳/海外场次"
+    },
+    {
+        "id": "xianyu",
+        "name": "闲鱼",
+        "url": "https://2.taobao.com",
+        "type": "social_c2c",
+        "priority": 2,
+        "note": "找客与实时散票行情"
+    },
+    {
+        "id": "weibo",
+        "name": "微博",
+        "url": "https://weibo.com",
+        "type": "social_content",
+        "priority": -1,
+        "note": "超话舆情与找客"
+    },
+    {
+        "id": "piaowuguanjia",
+        "name": "票务管家",
+        "url": "mini_program",
+        "type": "industry_b2b",
+        "priority": -1,
+        "note": "小程序端，业内分销标杆"
+    }
+]

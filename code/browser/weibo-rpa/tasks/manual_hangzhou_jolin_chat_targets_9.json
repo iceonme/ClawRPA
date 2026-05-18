@@ -1,0 +1,83 @@
+[
+  {
+    "target_id": "jolin_002",
+    "uid": "2716456097",
+    "nickname": "超级可爱的陈童鞋",
+    "priority": "P1",
+    "context": "抢到的不要，想要去的我抢不到",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=2716456097&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'抢到的不要，想要去的我抢不到'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_003",
+    "uid": "7269456936",
+    "nickname": "丨方方方丨",
+    "priority": "P1",
+    "context": "所以我没抢到的票，就是你们抢了？绝了绝了",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=7269456936&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'所以我没抢到的票，就是你们抢了？绝了绝了'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_004",
+    "uid": "2874073990",
+    "nickname": "·阿菁·",
+    "priority": "P2",
+    "context": "真正想去的粉丝抢不到",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=2874073990&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'真正想去的粉丝抢不到'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_005",
+    "uid": "7762865939",
+    "nickname": "Muse缪斯女神的吻",
+    "priority": "P2",
+    "context": "我好几个杭州的朋友想看都抢不到",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=7762865939&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'我好几个杭州的朋友想看都抢不到'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_006",
+    "uid": "2416117895",
+    "nickname": "EGO-RIGHT",
+    "priority": "P2",
+    "context": "让我看看是谁抢到了杭州回流票",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=2416117895&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'让我看看是谁抢到了杭州回流票'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_007",
+    "uid": "1758013813",
+    "nickname": "侯大可Astro",
+    "priority": "P3",
+    "context": "杭州见",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=1758013813&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'杭州见'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_008",
+    "uid": "6345677063",
+    "nickname": "会想你Pleasure鸟巢全勤版",
+    "priority": "P3",
+    "context": "妈咪 杭州见",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=6345677063&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'妈咪 杭州见'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_009",
+    "uid": "7788941190",
+    "nickname": "A宇宙无敌大美女w",
+    "priority": "P3",
+    "context": "蔡依林超话杭州见",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=7788941190&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'蔡依林超话杭州见'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  },
+  {
+    "target_id": "jolin_010",
+    "uid": "7188575862",
+    "nickname": "INTO_LAYERS",
+    "priority": "P3",
+    "context": "妈咪 杭州想听《我对我》《愈慢愈美丽》《自爱自受》《无言以对》",
+    "chat_url": "https://api.weibo.com/chat/#/chat?to_uid=7188575862&source_from=",
+    "final_message": "hi 宝子，我是龙虾有票的客服票多多，一个能帮你找票的 AI 智能体，看到你想去看杭州蔡依林，然后说'妈咪 杭州想听《我对我》《愈慢愈美丽》《自爱自受》《无言以对》'。我们这里有票哦，如果你还需要杭州场的票，可以告诉我你要几张/哪天/什么票面的，价格绝对优惠。欢迎互关。"
+  }
+]

@@ -24,27 +24,27 @@
 ## 当前推荐的正式入口
 ### 1. 单 task 正式入口（第一版 task/run 框架）
 ```bash
-python scripts/run_task.py --task-no 1 --max-leads 30
+python scripts/run_task.py --task-no 1
 ```
 
 如需让任务完成后主动回消息到当前 OpenClaw 会话，可额外传入：
 ```bash
-python scripts/run_task.py --task-no 1 --max-leads 30 --callback-session-id <当前session_id>
+python scripts/run_task.py --task-no 1 --callback-session-id <当前session_id>
 ```
 
 ### 2. 批量 task 顺序执行入口
 ```bash
-python scripts/run_task_batch.py --max-leads 30
+python scripts/run_task_batch.py
 ```
 
 批量入口也支持把当前 session id 透传给每个 task：
 ```bash
-python scripts/run_task_batch.py --max-leads 30 --callback-session-id <当前session_id>
+python scripts/run_task_batch.py --callback-session-id <当前session_id>
 ```
 
 ### 3. 当前最稳定的微博 collector（被 task 框架调用）
 ```bash
-python scripts/weibo_collect_test_leads.py --event-query "时代少年团 广州" --max-leads 100 --max-pages-per-keyword 12
+python scripts/run_lead_task.py --task-no 1
 ```
 
 ### 4. 微博 probe 入口
@@ -68,7 +68,7 @@ scripts/
   run_weibo_probe.py          # 正式 probe 入口（统一命名）
   run_task.py                 # 现有主任务骨架
   run_probe.py                # 现有 probe 骨架
-  weibo_collect_test_leads.py # 当前最稳定的微博 lead 收集脚本
+  weibo_collect_test_leads.py # 兼容旧命令；正式实现已迁到 src/flows/weibo_lead_collect.py
   launch_work_chrome.ps1
   check_cdp.py
   attach_playwright.py

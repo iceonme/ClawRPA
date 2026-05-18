@@ -1,26 +1,15 @@
-# 项目看板
+# 票牛自动化收割项目 - 进度看板
 
-## 🚀 正在进行
-- [/] `weibo-rpa` 已完成第一轮收口重构（平台优先，当前先做 `lead`）
-- [/] 微博 `lead` 工程化：统一入口、脚本分层、文档收口
-- [/] 为后续 `chat` 子域准备状态层 / 去重 / 增量刷新基础
+## 🏁 已完成 (Done)
+- [x] **v1.0 - v6.0**: 基础环境搭建与 Playwright 原生连接测试
+- [x] **v7.0 - v9.9**: 环境重生 (Rebirth) 策略实现，攻克初始风控
+- [x] **v10.0 - v11.4**: 首页搜索交互优化，白屏自动刷新机制
+- [x] **v11.5 - v12.5**: 入口穿透战术演进 (URL 突刺、首页热身、三点狙击)
+- [x] **v12.6 (FINAL)**: **终极胜利**。实现地毯式嗅探，产出 3798 行嵌套 JSON 报告。
 
-## 📅 待办事项
-- [ ] 增加最小 `state store`（优先 SQLite）
-- [ ] 落两张基础表：`lead_candidates` / `task_runs`
-- [ ] 做 lead 去重 key 与增量刷新策略
-- [ ] 把 `weibo_collect_test_leads.py` 往正式 pipeline 靠（并入 `run_lead_task.py` 或抽到 `src/` workflow）
-- [ ] 规划 `weibo-rpa/chat` 的 task schema 与状态流转
-- [ ] 如需增强，再做评论层抽取作为 `lead v2`
+## 🏃 正在进行 (In Progress)
+- [ ] 自动化流水线化 (多歌手批量收割)
+- [ ] 异常验证逻辑增强 (验证码自动识别接入预研)
 
-## ✅ 已完成
-- [x] 仓库物理目录已改名为：`C:\Projects\CloudPhone\code\browser\weibo-rpa`
-- [x] 已统一工程口径为：顶层 `weibo-rpa`，当前正式能力 `lead`
-- [x] 已更新 `README.md` / `SKILL.md` / `pyproject.toml` / `references` 关键文档
-- [x] 已新增统一入口：`scripts/run_lead_task.py` / `scripts/run_weibo_probe.py`
-- [x] 已新增示例输入：`examples/lead/weibo.event.json`
-- [x] 已整理 `scripts/` 为正式入口 / probe / archive 三层
-- [x] 已验证新路径下主入口可正常运行
-- [x] 已完成 `时代少年团 广州` 100 条 lead 测试
-- [x] 已完成 `蔡依林 苏州` 20 条 lead 测试
-- [x] 已确认当前高产模式主要是搜索结果页正文中的“没抢到”等强需求表达
+## 📅 历史记录 (History)
+- **2026-05-07**: 交付 v12.6 终极版，成功收割“广州 周传雄”全场次票价数据。

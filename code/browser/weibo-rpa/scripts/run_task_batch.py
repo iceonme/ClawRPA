@@ -23,12 +23,34 @@ if str(ROOT / "scripts") not in sys.path:
 from task_store import TASK_LIST_PATH, normalize_task_list_payload
 
 
+def parse_task_payload(stdout: str) -> dict:
+    decoder = json.JSONDecoder()
+    payloads: list[dict] = []
+    idx = 0
+    while idx < len(stdout):
+        start = stdout.find("{", idx)
+        if start == -1:
+            break
+        try:
+            payload, end = decoder.raw_decode(stdout[start:])
+        except json.JSONDecodeError:
+            idx = start + 1
+            continue
+        if isinstance(payload, dict):
+            payloads.append(payload)
+        idx = start + end
+    for payload in payloads:
+        if "ok" in payload and "task_id" in payload:
+            return payload
+    return payloads[0] if payloads else {}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run enabled weibo tasks sequentially")
     parser.add_argument("--port", type=int, default=9222)
-    parser.add_argument("--max-leads", type=int, default=30)
+    parser.add_argument("--max-leads", type=int, default=50)
     parser.add_argument("--max-pages-per-keyword", type=int, default=10)
-    parser.add_argument("--max-posts-per-page", type=int, default=5)
+    parser.add_argument("--max-posts-per-page", type=int, default=8)
     parser.add_argument("--max-comments-per-post", type=int, default=200)
     parser.add_argument("--comment-recent-days", type=int, default=5)
     parser.add_argument("--max-comment-scroll-rounds", type=int, default=30)
@@ -84,9 +106,8 @@ def main() -> int:
                 args.callback_prompt,
             ])
         completed = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True)
-        try:
-            payload = json.loads(completed.stdout.strip() or "{}")
-        except json.JSONDecodeError:
+        payload = parse_task_payload(completed.stdout)
+        if not payload:
             payload = {"ok": False, "stdout": completed.stdout, "stderr": completed.stderr, "task_no": item["task_no"]}
         payload["returncode"] = completed.returncode
         payload["keyword"] = item["keyword"]

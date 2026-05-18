@@ -2,7 +2,7 @@
 """Run one filesystem-backed weibo lead task.
 
 This is the first practical task/run framework layer.
-It wraps `weibo_collect_test_leads.py`, creates a task directory if needed,
+It wraps `src.flows.weibo_lead_collect`, creates a task directory if needed,
 opens a new run directory under `<task>/runs/<run_id>/`, then merges the run
 outputs into task-level status and current lead pool.
 """
@@ -14,11 +14,14 @@ import json
 import sys
 from pathlib import Path
 
-from openclaw_callback import notify_session
-
 ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS_ROOT = ROOT / "scripts"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(SCRIPTS_ROOT) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_ROOT))
+
+from openclaw_callback import notify_session
 
 from task_store import (
     TASKS_ROOT,
@@ -34,7 +37,7 @@ from task_store import (
     write_csv,
     write_jsonl,
 )
-from weibo_collect_test_leads import collect_leads
+from src.flows.weibo_lead_collect import collect_leads
 
 
 def parse_args() -> argparse.Namespace:
@@ -43,9 +46,9 @@ def parse_args() -> argparse.Namespace:
     group.add_argument("--task-id", help="task id, e.g. task01_蔡依林苏州20260408")
     group.add_argument("--task-no", type=int, help="task number in task_list.json")
     parser.add_argument("--port", type=int, default=9222, help="CDP port")
-    parser.add_argument("--max-leads", type=int, default=30)
+    parser.add_argument("--max-leads", type=int, default=50)
     parser.add_argument("--max-pages-per-keyword", type=int, default=10)
-    parser.add_argument("--max-posts-per-page", type=int, default=5)
+    parser.add_argument("--max-posts-per-page", type=int, default=8)
     parser.add_argument("--max-comments-per-post", type=int, default=200)
     parser.add_argument("--comment-recent-days", type=int, default=5)
     parser.add_argument("--max-comment-scroll-rounds", type=int, default=30)

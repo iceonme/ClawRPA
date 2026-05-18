@@ -65,7 +65,7 @@
 #### 正式入口
 - `run_lead_task.py`
 - `run_weibo_probe.py`
-- `weibo_collect_test_leads.py`
+- `src/flows/weibo_lead_collect.py`
 
 #### probe
 - `scripts/probe/*`

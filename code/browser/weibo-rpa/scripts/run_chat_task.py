@@ -6,12 +6,14 @@ import json
 import sys
 from pathlib import Path
 
-from openclaw_callback import notify_session
-
 ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS_ROOT = ROOT / "scripts"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(SCRIPTS_ROOT) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_ROOT))
 
+from openclaw_callback import notify_session
 from src.flows.weibo_chat_send import send_weibo_chat_message
 from scripts.task_store import now_iso, read_jsonl, write_jsonl, read_json, write_json, append_jsonl
 
@@ -20,14 +22,20 @@ GLOBAL_SCRIPT_MD = TASK_SHARE_ROOT / "话术.md"
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run one weibo chat task from task_share")
-    parser.add_argument("--task-id", required=True)
+    parser = argparse.ArgumentParser(description="Run one weibo chat send task")
+    parser.add_argument("--task-id", default="", help="task_share task id for pipeline mode")
     parser.add_argument("--target-id", default="")
+    parser.add_argument("--chat-url", default="", help="Direct chat URL for ad-hoc test mode")
     parser.add_argument("--port", type=int, default=9222)
     parser.add_argument("--message", default="")
     parser.add_argument("--callback-session-id", default="")
     parser.add_argument("--callback-prompt", default="chat 自测已跑完，请检查发送结果。")
-    return parser.parse_args()
+    args = parser.parse_args()
+    if not args.task_id and not args.chat_url:
+        parser.error("one of --task-id or --chat-url is required")
+    if args.chat_url and not args.message.strip():
+        parser.error("--message is required when using --chat-url")
+    return args
 
 
 def read_text(path: Path) -> str:
@@ -73,6 +81,9 @@ def count_sent(sent_records: list[dict]) -> tuple[int, int]:
 
 def main() -> int:
     args = parse_args()
+    if args.chat_url:
+        return run_direct_chat(args)
+
     task_dir = TASK_SHARE_ROOT / args.task_id
     if not task_dir.exists():
         raise SystemExit(f"task dir not found: {task_dir}")
@@ -227,6 +238,52 @@ def main() -> int:
         "screenshot_path": result.get("screenshot_path", ""),
         "html_path": result.get("html_path", ""),
     }
+    print(json.dumps(output, ensure_ascii=False, indent=2))
+
+    if args.callback_session_id:
+        callback_result = notify_session(
+            session_id=args.callback_session_id,
+            payload=output,
+            prompt=args.callback_prompt,
+        )
+        print(json.dumps({
+            "callback": {
+                "attempted": True,
+                "session_id": args.callback_session_id,
+                "ok": bool(callback_result and callback_result.returncode == 0),
+                "returncode": callback_result.returncode if callback_result else None,
+            }
+        }, ensure_ascii=False, indent=2))
+
+    return 0 if result.get("ok") else 1
+
+
+def run_direct_chat(args: argparse.Namespace) -> int:
+    run_id = now_iso().replace("-", "").replace(":", "").replace("+", "_").replace("T", "_")
+    run_root = ROOT / "runs" / "weibo-chat" / run_id
+    run_root.mkdir(parents=True, exist_ok=True)
+
+    result = send_weibo_chat_message(
+        chat_url=args.chat_url,
+        message=args.message,
+        run_root=str(run_root),
+        port=args.port,
+    )
+
+    output = {
+        "ok": bool(result.get("ok")),
+        "mode": "direct",
+        "run_id": run_id,
+        "run_root": str(run_root),
+        "status": result.get("status"),
+        "stop_reason": result.get("stop_reason"),
+        "message": args.message,
+        "chat_url": args.chat_url,
+        "screenshot_path": result.get("screenshot_path", ""),
+        "html_path": result.get("html_path", ""),
+        "result": result,
+    }
+    write_json(run_root / "summary.json", output)
     print(json.dumps(output, ensure_ascii=False, indent=2))
 
     if args.callback_session_id:
