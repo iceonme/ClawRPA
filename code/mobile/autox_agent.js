@@ -1,88 +1,53 @@
-// autox_agent.js — 手机端 AutoX.js HTTP 轮询代理
-// 导入到 AutoX.js → 运行
-
+// autox_agent.js v1.4 — 带心跳 + 增强容错
+// 手机: DT1901A (15000952727)
 var BRIDGE = "http://192.168.1.61:18900";
-var NAME = "phone-1";
+var NAME = "15000952727";
+var count = 0;
 
-console.log("连接桥接服务: " + BRIDGE);
-
-var polling = false;
+toast("Agent v1.4 启动");
 
 function poll() {
-  if (polling) return;
-  polling = true;
-  threads.start(function () {
-    while (true) {
-      try {
-        var r = http.get(BRIDGE + "/poll?name=" + NAME);
-        if (r.statusCode == 200) {
-          var msg = r.body.json();
-          if (msg) {
-            console.log("收到指令: " + JSON.stringify(msg));
-            try {
-              var result = handleAction(msg.action, msg);
-              sendResult(msg.id, true, result);
-            } catch (e) {
-              sendResult(msg.id, false, e.message);
-            }
-          }
-        }
-      } catch (e) {
-        console.error("轮询失败: " + e);
-      }
-      sleep(500);
-    }
-  });
-}
-
-function sendResult(id, ok, data) {
+  count++;
+  if (count % 10 == 0) toast("心跳 #" + count);
   try {
-    http.postJson(BRIDGE + "/result", {
-      id: id, ok: ok, data: data || (ok ? "ok" : "error")
-    });
+    var r = http.get(BRIDGE + "/poll?name=" + NAME);
+    if (r.statusCode == 200) {
+      var body = r.body.string();
+      if (body != "null") {
+        var msg = JSON.parse(body);
+        toast("收到: " + msg.action);
+        try { 
+          var result = doAction(msg.action, msg);
+          http.postJson(BRIDGE + "/result", {id: msg.id, ok: true, data: result});
+        } catch (e) { 
+          try { http.postJson(BRIDGE + "/result", {id: msg.id, ok: false, data: e.message}); } catch(e2){}
+        }
+      }
+    }
   } catch (e) {
-    console.error("回传失败: " + e);
+    // silent retry
   }
 }
 
-function handleAction(action, params) {
-  switch (action) {
-    case "launch":
-      var pkg = params.pkg || params;
-      app.launch(pkg);
-      sleep(2000);
-      return "打开 " + pkg;
-    case "click":
-      var text = params.text || params;
-      var s = text.length <= 2 ? textContains(text) : text(text);
-      var node = s.findOne(3000);
-      if (!node) throw new Error("未找到: " + text);
-      node.click();
-      sleep(500);
-      return "点击 " + text;
-    case "click_xy":
-      click(params.x, params.y);
-      sleep(300);
-      return "点击 " + params.x + "," + params.y;
-    case "screenshot":
-      var img = captureScreen();
-      return images.toBase64(img);
-    case "eval":
-      return eval(params.js || params);
-    case "input":
-      setText(params.text || params);
-      return "ok";
-    case "back":
-      back();
-      sleep(300);
-      return "ok";
-    default:
-      throw new Error("未知: " + action);
+function doAction(action, p) {
+  if (action == "launch") { app.launch(p.pkg || p); sleep(2000); return "ok"; }
+  if (action == "click") {
+    var t = p.text || p;
+    var n = (t.length <= 2 ? textContains(t) : text(t)).findOne(3000);
+    if (!n) throw new Error("未找到: " + t);
+    n.click(); sleep(500); return "ok";
   }
+  if (action == "click_xy") { click(p.x, p.y); sleep(300); return "ok"; }
+  if (action == "screenshot") {
+    requestScreenCapture(false);
+    sleep(500);
+    var img = captureScreen();
+    sleep(300);
+    return images.toBase64(img);
+  }
+  if (action == "eval") { return eval(p.js || p); }
+  if (action == "back") { back(); sleep(300); return "ok"; }
+  throw new Error("未知: " + action);
 }
 
-requestScreenCapture(false);
-device.keepScreenOn(3600 * 1000);
-toast("Agent 已启动");
-console.log("AutoX.js Agent 已启动，开始轮询...");
-poll();
+setInterval(poll, 500);
