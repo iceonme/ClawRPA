@@ -19,5 +19,5 @@ tmp_callback_payload.json
 **/.git_weibo_rpa_backup/
 
 # Redroid container data (root-owned, unreadable)
-workspace/01_data/redroid/
-workspace/01_data/redroid13/
+workspace/04_tasks/T001_Redroid_CloudPhone/files/redroid/
+workspace/04_tasks/T001_Redroid_CloudPhone/files/redroid13/
