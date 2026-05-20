@@ -2,6 +2,44 @@
 
 > 开始：2026-05-19
 
+## 2026-05-20 — 新手机 DT1901A (15000952727) 适配
+
+### 手机信息
+| 项 | 值 |
+|------|------|
+| 型号 | DT1901A (Delta) |
+| 系统 | Android 10 + Smartisan OS |
+| IP | 192.168.1.32 |
+| 无线 ADB | ✅ :5555 |
+
+### 适配踩坑（锤子 OS 三大坑 + 解决方案）
+
+| # | 坑 | 现象 | 解决方案 |
+|---|------|------|------|
+| 1 | `threads.start()` 失效 | 脚本运行后不发送 HTTP 请求 | 改用 `setInterval()` |
+| 2 | `http.postJson` 大体积崩溃 | 截图 base64 回传时脚本死亡 | try-catch 包裹 |
+| 3 | `requestScreenCapture` 重复调崩 | 第二次截图后代理挂 | 移到初始化只调一次 |
+
+### 版本演进
+| 版本 | 关键变更 |
+|------|------|
+| v1.1 | 初始版（threads） |
+| v1.2 | 单线程 while(true) — 失效 |
+| v1.3 | setInterval — 首次工作，截图后崩 |
+| v1.4 | try-catch 容错 + 心跳 toast — 截图后 eval 正常但二次截图崩 |
+| **v1.5** | requestScreenCapture 移到初始化 — **稳定** ✅ |
+
+### 最终稳定验证
+- ✅ 连续截图不崩
+- ✅ 截图后 eval 正常
+- ✅ 闲鱼打开 + 截图（1711KB）
+- ✅ 小红书打开 + 截图（1271KB）
+- ✅ 心跳 toast 持续显示
+
+### 新工具能力
+- bridge.js v1.1: 带时间戳日志，多队列 fallback
+- 截图保存路径: `workspace/04_tasks/T002_Phone_Bridge_RPA/files/screenshots/`
+
 ## 2026-05-19
 
 ### 方案决策
