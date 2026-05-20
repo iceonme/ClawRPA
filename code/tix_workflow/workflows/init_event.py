@@ -30,10 +30,15 @@ def download_image(url: str, save_path: str):
         print(f"[Init] 下载图片失败 {url}: {e}")
     return False
 
-def init_event_project(keyword: str, base_dir: str = "c:\\tix_work_bench"):
+def init_event_project(keyword: str, base_dir: str = None):
     """
     初始化一个票务项目：抓取信息、创建文件夹、下载物料、写入基础文件。
     """
+    if base_dir is None:
+        if sys.platform.startswith("win"):
+            base_dir = "c:\\tix_work_bench"
+        else:
+            base_dir = os.path.expanduser("~/tix_work_bench")
     # 0. 环境准备与人工引导
     if not prepare_browser_environment():
         print("[Init] 浏览器准备失败。")
@@ -111,6 +116,7 @@ def init_event_project(keyword: str, base_dir: str = "c:\\tix_work_bench"):
         f.write(info_md_content)
 
     # 6. 写入 status.json
+    timestamp = int(datetime.datetime.now().timestamp())
     status_data = {
         "event_id": timestamp,
         "keyword": keyword,

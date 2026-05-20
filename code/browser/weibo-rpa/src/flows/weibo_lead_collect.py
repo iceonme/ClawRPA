@@ -553,7 +553,10 @@ def ensure_cdp_available(endpoint: str, port: int, events_path: Path | None = No
     if is_cdp_ready(endpoint):
         return True
 
-    launch_script = ROOT / "scripts" / "launch_work_chrome.ps1"
+    import sys
+    is_win = sys.platform.startswith("win")
+    ext = "ps1" if is_win else "sh"
+    launch_script = ROOT / "scripts" / f"launch_work_chrome.{ext}"
     if not launch_script.exists():
         return False
 
@@ -561,24 +564,41 @@ def ensure_cdp_available(endpoint: str, port: int, events_path: Path | None = No
         emit_event(events_path, run_id, "cdp_launch_attempt", endpoint=endpoint, port=port, script=str(launch_script))
 
     try:
-        subprocess.run(
-            [
-                "powershell",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                str(launch_script),
-                "-Port",
-                str(port),
-            ],
-            cwd=str(ROOT),
-            check=False,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            timeout=20,
-        )
+        if is_win:
+            subprocess.run(
+                [
+                    "powershell",
+                    "-ExecutionPolicy",
+                    "Bypass",
+                    "-File",
+                    str(launch_script),
+                    "-Port",
+                    str(port),
+                ],
+                cwd=str(ROOT),
+                check=False,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=20,
+            )
+        else:
+            subprocess.run(
+                [
+                    "/bin/bash",
+                    str(launch_script),
+                    "--port",
+                    str(port),
+                ],
+                cwd=str(ROOT),
+                check=False,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=20,
+            )
     except Exception as exc:
         if events_path and run_id:
             emit_event(events_path, run_id, "cdp_launch_failed", level="warn", error=type(exc).__name__)

@@ -6,7 +6,10 @@ import sys
 # 路径设置
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(current_dir)))
-launch_script = os.path.join(project_root, "code", "browser", "weibo-rpa", "scripts", "launch_work_chrome.ps1")
+if sys.platform.startswith("win"):
+    launch_script = os.path.join(project_root, "code", "browser", "weibo-rpa", "scripts", "launch_work_chrome.ps1")
+else:
+    launch_script = os.path.join(project_root, "code", "browser", "weibo-rpa", "scripts", "launch_work_chrome.sh")
 dashboard_html = os.path.join(current_dir, "prep_dashboard.html")
 
 # 引入 BrowserSession
@@ -21,7 +24,10 @@ def prepare_browser_environment():
     """
     print("[Prep] 正在启动工作浏览器...")
     try:
-        subprocess.run(["powershell", "-File", launch_script], check=True)
+        if sys.platform.startswith("win"):
+            subprocess.run(["powershell", "-File", launch_script], check=True)
+        else:
+            subprocess.run(["/bin/bash", launch_script], check=True)
     except Exception as e:
         print(f"[Prep] 启动失败: {e}")
         return False
